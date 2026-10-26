@@ -65,17 +65,25 @@ const objectGallery = [
   "Screenshot 2026-06-20 213340.png",
 ].map((name) => galleryUrl("obj", name));
 
+const kettleGallery = [
+  "Screenshot 2026-10-26 104849.png",
+  "Screenshot 2026-10-26 104910.png",
+  "Screenshot 2026-10-26 104928.png",
+  "Screenshot 2026-10-26 104946.png",
+  "Screenshot 2026-10-26 105018.png",
+  "Screenshot 2026-10-26 105100.png",
+].map((name) => galleryUrl("cafe", name));
+
 const projects: Project[] = [
   {
-    title: "Assured Contract Farming System for Stable Market Access",
+    title: "Kettle & Kitchen – Cafe Management System",
     description:
-      "A full-stack web application that directly connects farmers and buyers, enabling transparent agricultural trade without middlemen. It features role-based dashboards, a common marketplace with live product listings and market prices, and real-time messaging for negotiation. Farmers can list crops, buyers can post requirements, and both can send requests and finalize agreements through a structured workflow to ensure trust and efficiency.\n\nDemo Login: farmer@gmail.com / buyer@gmail.com / admin@gmail.com (Password: 123456) to explore the system.",
-    image: "farm.png",
-    tags: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS", "Full Stack"],
-    liveUrl: "https://contract-farming-website-1afterlivebvdf.onrender.com",
-    githubUrl: "https://github.com/Gayathri-Vasu/Contract_Farming_Website",
-    videoUrl: "farmv.mp4",
-    galleryImages: farmGallery,
+      "A full-stack cafe management application designed to streamline daily cafe operations through a centralized, role-based platform. The system enables staff to manage walk-in customer orders, generate downloadable PDF bills, and track order statuses, while administrators can manage menu categories, products, staff accounts, and sales through a dedicated dashboard. It features secure JWT-based authentication, real-time order updates, and a responsive interface, with a Spring Boot REST API and MySQL database supporting efficient data management.",
+    image: galleryUrl("cafe", "1.png"),
+    tags: ["Angular", "TypeScript", "Java", "Spring Boot", "Spring Security", "JWT", "MySQL", "REST APIs", "SCSS"],
+    videoUrl: "cafe.mp4",
+    githubUrl: "https://github.com/Gayathri-Vasu/Cafe_Management",
+    galleryImages: kettleGallery,
   },
   {
     title: "Medikart",
@@ -86,6 +94,17 @@ const projects: Project[] = [
     githubUrl: "https://github.com/Gayathri-Vasu/Medikart",
     videoUrl: "medikartv.mp4",
     galleryImages: medikartGallery,
+  },
+  {
+    title: "Assured Contract Farming System for Stable Market Access",
+    description:
+      "A full-stack web application that directly connects farmers and buyers, enabling transparent agricultural trade without middlemen. It features role-based dashboards, a common marketplace with live product listings and market prices, and real-time messaging for negotiation. Farmers can list crops, buyers can post requirements, and both can send requests and finalize agreements through a structured workflow to ensure trust and efficiency.\n\nDemo Login: farmer@gmail.com / buyer@gmail.com / admin@gmail.com (Password: 123456) to explore the system.",
+    image: "farm.png",
+    tags: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS", "Full Stack"],
+    liveUrl: "https://contract-farming-website-1afterlivebvdf.onrender.com",
+    githubUrl: "https://github.com/Gayathri-Vasu/Contract_Farming_Website",
+    videoUrl: "farmv.mp4",
+    galleryImages: farmGallery,
   },
   {
     title: "Object-Detection",
@@ -175,19 +194,19 @@ const ProjectCard = ({ project, index, initialSpeed = 1 }: { project: Project; i
           )}
         </div>
 
-        <Button
-          variant="ghost"
-          className="w-full rounded-none border-t border-border/50 bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 hover:from-primary/20 hover:via-accent/10 hover:to-secondary/20 text-foreground hover:text-primary transition-all py-5 h-auto font-medium"
-          onClick={() => setGalleryOpen(true)}
-        >
-          <FiGrid className="mr-2 h-4 w-4 text-accent" />
-          Visual Gallery
-          {galleryImages.length > 0 && (
+        {galleryImages.length > 0 && (
+          <Button
+            variant="ghost"
+            className="w-full rounded-none border-t border-border/50 bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 hover:from-primary/20 hover:via-accent/10 hover:to-secondary/20 text-foreground hover:text-primary transition-all py-5 h-auto font-medium"
+            onClick={() => setGalleryOpen(true)}
+          >
+            <FiGrid className="mr-2 h-4 w-4 text-accent" />
+            Visual Gallery
             <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-accent/20 text-accent">
               {galleryImages.length}
             </span>
-          )}
-        </Button>
+          </Button>
+        )}
 
         <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
           <DialogContent className="max-w-7xl w-[98vw] h-[95vh] max-h-[95vh] p-0 gap-0 flex flex-col overflow-hidden border-border bg-card">
