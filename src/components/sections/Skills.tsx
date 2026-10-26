@@ -10,7 +10,6 @@ import {
   SiMysql,
   SiGit,
   SiOpenai,
-  SiFigma,
   SiSpring
 } from "react-icons/si";
 import { TbBrain, TbCursorText } from "react-icons/tb";
@@ -35,12 +34,6 @@ const mainSkills: Skill[] = [
   { name: "ChatGPT", icon: SiOpenai, level: 85, color: "#74AA9C" },
   { name: "Cursor", icon: TbCursorText, level: 80, color: "#000000" },
   { name: "Claude AI", icon: TbBrain, level: 80, color: "#CC8833" },
-];
-
-const supportingSkills: Skill[] = [
-  { name: "Prompt Engineering", icon: SiFigma, level: 80, color: "#8C52FF" },
-  { name: "Canva", icon: SiFigma, level: 85, color: "#00C4CC" },
-  { name: "Excel ", icon: SiFigma, level: 80, color: "#217346" },
 ];
 
 const SkillGrid = ({ title, skills }: { title: string; skills: Skill[] }) => {
@@ -139,9 +132,6 @@ const Skills = () => {
 
         {/* ✅ Main Skills Grid */}
         <SkillGrid title="Core Technical Skills" skills={mainSkills} />
-
-        {/* ✅ Supporting Skills Grid */}
-        <SkillGrid title="Supporting Skills" skills={supportingSkills} />
       </div>
     </section>
   );
